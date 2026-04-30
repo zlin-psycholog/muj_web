@@ -15,7 +15,7 @@ V souboru `index.html` najděte a změňte:
 3. **Ceny služeb** – sekce „Služby", v každé kartě je řádek s cenou
 4. **Kontaktní údaje** – sekce „Kontakt":
    - e-mail: `terapie@example.cz`
-   - telefon: `+420 777 123 456`
+   - telefon: `+420 774351012`
    - adresa: `Vodičkova 12, Praha 1`
 5. **IČO** v patičce
 
