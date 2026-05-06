@@ -660,9 +660,13 @@ ul {
         height: 1.2px;
     }
 
+    .navbar {
+        top: env(safe-area-inset-top, 0);
+    }
+
     .nav-links {
         position: fixed;
-        top: 60px;
+        top: calc(60px + env(safe-area-inset-top, 0));
         left: 0;
         right: 0;
         background-color: var(--color-bg);
@@ -672,7 +676,7 @@ ul {
         border-bottom: 1px solid var(--color-border);
         transform: translateY(-110%);
         transition: var(--transition);
-        max-height: calc(100vh - 60px);
+        max-height: calc(100vh - 60px - env(safe-area-inset-top, 0));
         overflow-y: auto;
         z-index: 99;
     }
