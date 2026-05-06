@@ -8,6 +8,9 @@ const navLinks = document.querySelector('.nav-links');
 
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    const isOpen = navLinks.classList.contains('active');
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
 });
 
 // Zavřít menu po kliknutí na odkaz
