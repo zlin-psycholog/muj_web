@@ -377,6 +377,24 @@ ul {
     color: var(--color-text-light);
 }
 
+/* Education grid */
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.education-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.education-item p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
 /* ==========================================================================
    PRO KOHO - Topics list
    ========================================================================== */
