@@ -4,14 +4,14 @@
 
 /* Proměnné - barvy a typografie */
 :root {
-    --color-bg: #f5f1ea;          /* světlá béžová */
-    --color-bg-alt: #ebe4d6;       /* tmavší béžová */
-    --color-text: #3d3528;         /* tmavě hnědá */
-    --color-text-light: #6b5f4d;   /* středně hnědá */
-    --color-accent: #8b6f47;       /* terra/hnědá */
-    --color-accent-dark: #6b5535;  /* tmavší terra */
-    --color-border: #d9cfbd;       /* světlá hnědá */
-    --color-white: #fdfbf7;        /* krémová bílá */
+    --color-bg: #EFEEE3;           /* béžová s nádechem zelené */
+    --color-bg-alt: #FFFFFF;       /* karty, sekce */
+    --color-text: #2B2B2B;         /* charcoal */
+    --color-text-light: #5A5A5A;   /* text-soft */
+    --color-accent: #6B7048;       /* tlumená olivová */
+    --color-accent-dark: #545838;  /* accent-hover */
+    --color-border: #E0DFD3;       /* jemné linky ladí s pozadím */
+    --color-white: #FFFFFF;        /* surface */
 
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
