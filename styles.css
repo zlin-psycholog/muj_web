@@ -364,6 +364,19 @@ ul {
     font-size: 1.05rem;
 }
 
+/* Work description */
+.work-description {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    text-align: center;
+}
+
+.work-description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+}
+
 /* ==========================================================================
    PRO KOHO - Topics list
    ========================================================================== */
