@@ -290,7 +290,7 @@ ul {
     order: 2;
 }
 
-..section-image {
+.section-image {
     position: relative;
     display: flex;
     align-items: center;
@@ -642,7 +642,7 @@ ul {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
     .nav-container {
         padding: 1rem 1.5rem;
     }
