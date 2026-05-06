@@ -278,8 +278,19 @@ ul {
     order: 2;
 }
 
-.section-image {
+..section-image {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2px;
 }
 
 .image-placeholder {
