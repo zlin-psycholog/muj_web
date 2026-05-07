@@ -13,6 +13,11 @@
     --color-border: #E0DFD3;       /* jemné linky ladí s pozadím */
     --color-white: #FFFFFF;        /* surface */
 
+    --rgb-bg: 239, 238, 227;       /* #EFEEE3 pro rgba() */
+    --rgb-text: 43, 43, 43;        /* #2B2B2B pro rgba() */
+    --rgb-accent: 107, 112, 72;    /* #6B7048 pro rgba() */
+    --navbar-height: 60px;         /* přepisováno JavaScriptem */
+
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -136,7 +141,7 @@ ul {
     background-color: var(--color-accent-dark);
     color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(61, 53, 40, 0.15);
+    box-shadow: 0 8px 20px rgba(var(--rgb-text), 0.15);
 }
 
 /* ==========================================================================
@@ -147,12 +152,13 @@ ul {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(245, 241, 234, 0.95);
+    background-color: rgba(var(--rgb-bg), 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 100;
     border-bottom: 1px solid transparent;
     transition: var(--transition);
+    padding-top: env(safe-area-inset-top, 0px);
 }
 
 .navbar.scrolled {
@@ -238,7 +244,7 @@ ul {
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-    padding: 8rem 0 4rem;
+    padding: calc(8rem + env(safe-area-inset-top, 0px)) 0 4rem;
     position: relative;
     overflow: hidden;
 }
@@ -250,7 +256,7 @@ ul {
     right: -10%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(139, 111, 71, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(var(--rgb-accent), 0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
@@ -370,7 +376,7 @@ ul {
 
 .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(61, 53, 40, 0.08);
+    box-shadow: 0 10px 30px rgba(var(--rgb-text), 0.08);
     border-color: var(--color-accent);
 }
 
@@ -661,8 +667,8 @@ ul {
     }
 
     .nav-links {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: var(--navbar-height);
         left: 0;
         right: 0;
         background-color: var(--color-bg);
@@ -672,7 +678,7 @@ ul {
         border-bottom: 1px solid var(--color-border);
         transform: translateY(-110%);
         transition: var(--transition);
-        max-height: calc(100vh - 80px);
+        max-height: calc(100vh - var(--navbar-height));
         overflow-y: auto;
         z-index: 99;
     }
@@ -688,7 +694,7 @@ ul {
 
     .hero {
         min-height: 70vh;
-        padding: 6rem 0 2rem;
+        padding: calc(6rem + env(safe-area-inset-top, 0px)) 0 2rem;
     }
 
     .hero h1 {
