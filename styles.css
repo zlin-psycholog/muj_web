@@ -16,7 +16,6 @@
     --rgb-bg: 239, 238, 227;       /* #EFEEE3 pro rgba() */
     --rgb-text: 43, 43, 43;        /* #2B2B2B pro rgba() */
     --rgb-accent: 107, 112, 72;    /* #6B7048 pro rgba() */
-    --navbar-height: 60px;         /* přepisováno JavaScriptem */
 
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -152,9 +151,7 @@ ul {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(var(--rgb-bg), 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background-color: var(--color-bg);
     z-index: 100;
     border-bottom: 1px solid transparent;
     transition: var(--transition);
@@ -667,8 +664,8 @@ ul {
     }
 
     .nav-links {
-        position: fixed;
-        top: var(--navbar-height);
+        position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
         background-color: var(--color-bg);
@@ -678,7 +675,7 @@ ul {
         border-bottom: 1px solid var(--color-border);
         transform: translateY(-110%);
         transition: var(--transition);
-        max-height: calc(100vh - var(--navbar-height));
+        max-height: 80vh;
         overflow-y: auto;
         z-index: 99;
     }

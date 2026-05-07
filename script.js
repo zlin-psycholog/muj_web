@@ -31,16 +31,9 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Výška navbaru jako CSS proměnná (pro správné pozicování dropdown na iPhone)
+// Stín navigace při scrollování
 const navbar = document.querySelector('.navbar');
 
-function updateNavbarHeight() {
-    document.documentElement.style.setProperty('--navbar-height', navbar.offsetHeight + 'px');
-}
-updateNavbarHeight();
-window.addEventListener('resize', updateNavbarHeight);
-
-// Stín navigace při scrollování
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
