@@ -673,14 +673,20 @@ ul {
         padding: 1.5rem;
         gap: 1rem;
         border-bottom: 1px solid var(--color-border);
-        transform: translateY(-110%);
-        transition: var(--transition);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
         max-height: 80vh;
         overflow-y: auto;
         z-index: 99;
     }
 
     .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
         transform: translateY(0);
     }
 
