@@ -17,7 +17,18 @@ menuToggle.addEventListener('click', () => {
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
     });
+});
+
+// Zavřít menu při kliknutí mimo navigaci
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar')) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    }
 });
 
 // Stín navigace při scrollování
