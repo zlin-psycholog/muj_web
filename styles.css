@@ -237,11 +237,11 @@ ul {
    HERO
    ========================================================================== */
 .hero {
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-    padding: calc(8rem + env(safe-area-inset-top, 0px)) 0 4rem;
+    padding: calc(5rem + env(safe-area-inset-top, 0px)) 0 2.5rem;
     position: relative;
     overflow: hidden;
 }
@@ -306,6 +306,7 @@ ul {
     height: auto;
     object-fit: cover;
     border-radius: 2px;
+    filter: brightness(1.1);
 }
 
 .image-placeholder {
@@ -592,6 +593,97 @@ ul {
 }
 
 /* ==========================================================================
+   STATS SEKCE
+   ========================================================================== */
+.stats-section {
+    padding: var(--section-padding);
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+.stats-heading {
+    text-align: center;
+    color: var(--color-bg);
+    margin-bottom: 3.5rem;
+}
+
+.stats-heading strong {
+    font-weight: 600;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: rgba(var(--rgb-bg), 0.6);
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--color-accent);
+    display: block;
+}
+
+.stat-desc {
+    font-size: 0.85rem;
+    color: rgba(var(--rgb-bg), 0.6);
+    margin: 0;
+    max-width: 160px;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   REFERENCE SEKCE
+   ========================================================================== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.review-item {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-style: italic;
+    margin: 0;
+}
+
+.review-author {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ==========================================================================
    PATIČKA
    ========================================================================== */
 .footer {
@@ -615,6 +707,27 @@ ul {
 /* ==========================================================================
    RESPONZIVITA
    ========================================================================== */
+@media (max-width: 900px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 1.5rem;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-number {
+        font-size: 3.5rem;
+    }
+}
+
 @media (max-width: 900px) {
     .section-grid,
     .contact-grid {
@@ -696,8 +809,8 @@ ul {
     }
 
     .hero {
-        min-height: 70vh;
-        padding: calc(6rem + env(safe-area-inset-top, 0px)) 0 2rem;
+        min-height: 50vh;
+        padding: calc(5rem + env(safe-area-inset-top, 0px)) 0 1.5rem;
     }
 
     .hero h1 {
