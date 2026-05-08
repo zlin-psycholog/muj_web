@@ -614,7 +614,6 @@ ul {
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
     text-align: center;
 }
 
@@ -622,7 +621,13 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
+    padding: 0 2rem;
+    border-left: 1px solid rgba(var(--rgb-bg), 0.2);
+}
+
+.stat-item:first-child {
+    border-left: none;
 }
 
 .stat-label {
@@ -638,6 +643,7 @@ ul {
     line-height: 1;
     color: var(--color-accent);
     display: block;
+    margin: 0.25rem 0;
 }
 
 .stat-desc {
