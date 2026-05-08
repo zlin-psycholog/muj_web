@@ -17,7 +17,7 @@
     --rgb-text: 43, 43, 43;        /* #2B2B2B pro rgba() */
     --rgb-accent: 107, 112, 72;    /* #6B7048 pro rgba() */
 
-    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
     --max-width: 1140px;
@@ -50,26 +50,27 @@ body {
 /* Typografie */
 h1, h2, h3 {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.2;
     color: var(--color-text);
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 
 h2 {
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
     margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 p {
@@ -596,14 +597,12 @@ ul {
    STATS SEKCE
    ========================================================================== */
 .stats-section {
-    padding: var(--section-padding);
-    background-color: var(--color-text);
-    color: var(--color-bg);
+    background-color: var(--color-bg);
 }
 
 .stats-heading {
     text-align: center;
-    color: var(--color-bg);
+    color: var(--color-text);
     margin-bottom: 3.5rem;
 }
 
@@ -623,7 +622,7 @@ ul {
     align-items: center;
     gap: 0.5rem;
     padding: 0 2rem;
-    border-left: 1px solid rgba(var(--rgb-bg), 0.2);
+    border-left: 1px solid var(--color-border);
 }
 
 .stat-item:first-child {
@@ -632,7 +631,7 @@ ul {
 
 .stat-label {
     font-size: 0.85rem;
-    color: rgba(var(--rgb-bg), 0.6);
+    color: var(--color-text-light);
     letter-spacing: 0.03em;
     margin: 0;
 }
@@ -648,7 +647,7 @@ ul {
 
 .stat-desc {
     font-size: 0.85rem;
-    color: rgba(var(--rgb-bg), 0.6);
+    color: var(--color-text-light);
     margin: 0;
     max-width: 160px;
     line-height: 1.4;
