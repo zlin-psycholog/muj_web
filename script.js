@@ -7,7 +7,7 @@
 // Sem vložte přístupový klíč ze služby Web3Forms (https://web3forms.com).
 // Dokud je prázdný, formulář jen otevře e-mailovou aplikaci návštěvníka.
 // --------------------------------------------------------------------------
-const WEB3FORMS_KLIC = '';
+const WEB3FORMS_KLIC = '605e7ac5-ee2e-46d5-9039-339a1fd58049';
 const KONTAKTNI_EMAIL = 'zlinpsycholog@gmail.com';
 
 // Mobilní menu

@@ -59,4 +59,4 @@ sips -Z 1100 -s format jpeg -s formatOptions 62 puvodni.jpg --out nova-fotka.jpg
      ```html
      <img src="nazev-fotky.jpg" alt="Popis fotky" width="1100" height="825" loading="lazy">
      ```
-- **Formulář** – vložit klíč Web3Forms (viz výše).
+
