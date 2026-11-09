@@ -34,14 +34,10 @@ Náhled před zveřejněním: otevřít `index.html` dvojklikem v prohlížeči.
 ## Co ještě zbývá doplnit
 
 V `index.html` vyhledat text „Zde bude“:
-- O mně: Vzdělání, Odborné kurzy
+
 - Jak pracuji: popis přístupu k terapii
-- FAQ: „S čím se na mě můžete obrátit?“
-- Krátký text pod FAQ
-- Reference: 3 citace klientů
 
 Dále:
-- Sekce „Pár čísel“: místo pomlček `–` doplnit čísla
 - U FAQ nahradit `<div class="image-placeholder ...">` fotkou:
   ```html
   <img src="nazev-fotky.jpg" alt="Popis fotky" class="profile-image">

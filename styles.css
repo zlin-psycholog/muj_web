@@ -725,11 +725,15 @@ ul {
 
 @media (max-width: 500px) {
     .stats-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stat-item {
+        padding: 0 0.75rem;
     }
 
     .stat-number {
-        font-size: 3.5rem;
+        font-size: clamp(2.25rem, 11vw, 3.5rem);
     }
 }
 
@@ -875,4 +879,13 @@ ul {
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--color-text-light);
+}
+
+/* Seznam témat uvnitř FAQ – jeden sloupec */
+.faq-item .topics-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 0.75rem;
+    padding-right: 2rem;
+    list-style: none;
 }
