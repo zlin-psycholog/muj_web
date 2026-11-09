@@ -658,7 +658,7 @@ ul {
    ========================================================================== */
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -852,4 +852,27 @@ ul {
     :root {
         --section-padding: 3rem 0;
     }
+}
+
+/* ==========================================================================
+   CITÁT pod FAQ
+   ========================================================================== */
+.quote {
+    margin: 0;
+    text-align: center;
+}
+
+.quote p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.quote cite {
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-light);
 }
