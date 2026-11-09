@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Mgr. Marek Vávra - psychoterapie a poradenství. Bezpečný prostor pro vaši cestu k sobě. Individuální terapie pro dospělé.">
+    <meta name="description" content="Mgr. Marek Vávra – psycholog a psychoterapeut. Psychoterapie a psychologické poradenství online. Bezpečný prostor pro vaši cestu k sobě.">
     <title>Mgr. Marek Vávra | Psychoterapeut Zlín</title>
+    <link rel="canonical" href="https://www.zlin-psycholog.cz/">
+    <meta name="theme-color" content="#EFEEE3">
+
+    <!-- Náhled při sdílení odkazu (Facebook, WhatsApp, Messenger…) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:url" content="https://www.zlin-psycholog.cz/">
+    <meta property="og:site_name" content="Mgr. Marek Vávra – psychoterapie">
+    <meta property="og:title" content="Mgr. Marek Vávra | Psychoterapeut Zlín">
+    <meta property="og:description" content="Psychoterapie a psychologické poradenství online. Bezpečný prostor pro vaši cestu k sobě.">
+    <meta property="og:image" content="https://www.zlin-psycholog.cz/foto-portret.jpg">
+    <meta property="og:image:width" content="1100">
+    <meta property="og:image:height" content="825">
+    <meta property="og:image:alt" content="Mgr. Marek Vávra">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Údaje pro vyhledávače -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Mgr. Marek Vávra – psychoterapie a psychologické poradenství",
+        "url": "https://www.zlin-psycholog.cz/",
+        "image": "https://www.zlin-psycholog.cz/foto-portret.jpg",
+        "description": "Psychoterapie a psychologické poradenství online.",
+        "email": "zlinpsycholog@gmail.com",
+        "telephone": "+420774351012",
+        "areaServed": "CZ",
+        "availableLanguage": "cs",
+        "founder": {
+            "@type": "Person",
+            "name": "Marek Vávra",
+            "honorificPrefix": "Mgr.",
+            "jobTitle": "Psycholog a psychoterapeut"
+        }
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
 
     <!-- NAVIGACE -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#uvod" class="logo">Mgr. Marek Vávra</a>
-            <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="hlavni-menu">
                 <span></span><span></span><span></span>
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="hlavni-menu">
                 <li><a href="#o-mne">O mně</a></li>
                 <li><a href="#sluzby">Jak pracuji</a></li>
-                <li><a href="#faq">Časté otázky</a></li>
+                <!-- FAQ dočasně skryto: <li><a href="#faq">Časté otázky</a></li> -->
                 <li><a href="#reference">Reference</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
@@ -38,12 +76,14 @@
         </div>
     </header>
 
+    <main id="obsah">
+
     <!-- O MNĚ -->
     <section id="o-mne" class="section">
         <div class="container">
             <div class="section-grid">
                 <div class="section-image">
-                    <img src="foto-portret.jpg" alt="Mgr. Marek Vávra" class="profile-image">
+                    <img src="foto-portret.jpg" alt="Mgr. Marek Vávra" class="profile-image" width="1100" height="825" decoding="async">
                 </div>
                 <div class="section-content">
                     <p class="section-label">O mně</p>
@@ -78,8 +118,8 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
+    <!-- FAQ – dočasně skryto atributem hidden (pro zobrazení smazat slovo hidden a vrátit odkaz v menu) -->
+    <section id="faq" class="section" hidden>
         <div class="container">
             <div class="section-grid reversed">
                 <div class="section-content">
@@ -154,9 +194,9 @@
                     <p class="stat-desc">let</p>
                 </div>
                 <div class="stat-item">
-                    <p class="stat-label">Ve své praxi využívám</p>
-                    <span class="stat-number">500+</span>
-                    <p class="stat-desc">hodin intenzivního učení a pořád pokračuji!</p>
+                    <p class="stat-label">Věnuji se psychoterapii</p>
+                    <span class="stat-number">7</span>
+                    <p class="stat-desc">let</p>
                 </div>
                 <div class="stat-item">
                     <p class="stat-label">Mám za sebou</p>
@@ -165,7 +205,7 @@
                 </div>
                 <div class="stat-item">
                     <p class="stat-label">Měl jsem v péči</p>
-                    <span class="stat-number">200+</span>
+                    <span class="stat-number">100+</span>
                     <p class="stat-desc">klientů</p>
                 </div>
             </div>
@@ -211,30 +251,35 @@
                     </div>
                 </div>
 
-                <form class="contact-form" action="#" method="POST" onsubmit="return handleSubmit(event)">
+                <form class="contact-form" id="kontaktni-formular" method="POST">
+                    <!-- past na roboty – člověk toto pole nevidí -->
+                    <input type="checkbox" name="botcheck" class="form-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-group">
                         <label for="name">Jméno</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Zpráva</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Odeslat zprávu</button>
-                    <p class="form-note">Odpovím vám nejpozději do 2 pracovních dnů.</p>
+                    <p class="form-status" id="stav-formulare" role="status" aria-live="polite"></p>
+                    <p class="form-note">Odpovím vám nejpozději do 2 pracovních dnů.<br>Údaje z formuláře použiji pouze k odpovědi na vaši zprávu.</p>
                 </form>
             </div>
         </div>
     </section>
 
+    </main>
+
     <!-- PATIČKA -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Mgr. Marek Vávra · Psychoterapie Zlín</p>
+            <p>&copy; <span id="rok">2026</span> Mgr. Marek Vávra · Psychoterapie Zlín</p>
             <p class="small">IČO: 09569626 · Kandidátní člen České asociace pro psychoterapii</p>
         </div>
     </footer>

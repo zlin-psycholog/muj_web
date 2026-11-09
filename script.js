@@ -2,62 +2,116 @@
 // PSYCHOTERAPIE - Interaktivní funkce
 // ==========================================================================
 
+// --------------------------------------------------------------------------
+// NASTAVENÍ FORMULÁŘE
+// Sem vložte přístupový klíč ze služby Web3Forms (https://web3forms.com).
+// Dokud je prázdný, formulář jen otevře e-mailovou aplikaci návštěvníka.
+// --------------------------------------------------------------------------
+const WEB3FORMS_KLIC = '';
+const KONTAKTNI_EMAIL = 'zlinpsycholog@gmail.com';
+
 // Mobilní menu
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
+function nastavMenu(otevrit) {
+    navLinks.classList.toggle('active', otevrit);
+    menuToggle.classList.toggle('active', otevrit);
+    menuToggle.setAttribute('aria-expanded', String(otevrit));
+}
+
 menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    const isOpen = navLinks.classList.contains('active');
-    menuToggle.classList.toggle('active', isOpen);
-    menuToggle.setAttribute('aria-expanded', isOpen);
+    nastavMenu(!navLinks.classList.contains('active'));
 });
 
 // Zavřít menu po kliknutí na odkaz
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', () => nastavMenu(false));
 });
 
 // Zavřít menu při kliknutí mimo navigaci
 document.addEventListener('click', (e) => {
-    if (!e.target.closest('.navbar')) {
-        navLinks.classList.remove('active');
-        menuToggle.classList.remove('active');
-        menuToggle.setAttribute('aria-expanded', 'false');
+    if (!e.target.closest('.navbar')) nastavMenu(false);
+});
+
+// Zavřít menu klávesou Esc
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        nastavMenu(false);
+        menuToggle.focus();
     }
 });
 
-// Stín navigace při scrollování
+// Linka pod navigací při scrollování
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
 
-// Zpracování formuláře
-function handleSubmit(event) {
-    event.preventDefault();
+// Aktuální rok v patičce
+document.getElementById('rok').textContent = new Date().getFullYear();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+// Kontaktní formulář
+const formular = document.getElementById('kontaktni-formular');
+const stav = document.getElementById('stav-formulare');
 
-    // Otevře e-mailového klienta s vyplněnou zprávou
-    // Toto je nejjednodušší řešení bez serveru
+function ukazStav(text, chyba) {
+    stav.textContent = text;
+    stav.classList.toggle('error', Boolean(chyba));
+}
+
+// Záložní řešení: otevře e-mailovou aplikaci s vyplněnou zprávou
+function otevriEmail(name, email, message) {
     const subject = encodeURIComponent(`Poptávka terapie - ${name}`);
     const body = encodeURIComponent(
         `Jméno: ${name}\nE-mail: ${email}\n\nZpráva:\n${message}`
     );
-
-    window.location.href = `mailto:zlinpsycholog@gmail.com?subject=${subject}&body=${body}`;
-
-    return false;
+    window.location.href = `mailto:${KONTAKTNI_EMAIL}?subject=${subject}&body=${body}`;
 }
+
+formular.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const name = formular.elements.name.value.trim();
+    const email = formular.elements.email.value.trim();
+    const message = formular.elements.message.value.trim();
+
+    // Bez klíče: jen otevřít e-mailovou aplikaci
+    if (!WEB3FORMS_KLIC) {
+        otevriEmail(name, email, message);
+        ukazStav(`Otevírám váš e-mailový program. Pokud se nic nestalo, napište mi prosím přímo na ${KONTAKTNI_EMAIL}.`);
+        return;
+    }
+
+    // Vyplněné skryté pole = robot, tiše ukončit
+    if (formular.elements.botcheck.checked) return;
+
+    const tlacitko = formular.querySelector('button[type="submit"]');
+    tlacitko.disabled = true;
+    ukazStav('Odesílám…');
+
+    try {
+        const odpoved = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_KLIC,
+                subject: `Zpráva z webu – ${name}`,
+                from_name: 'Web zlin-psycholog.cz',
+                name,
+                email,
+                message
+            })
+        });
+        const vysledek = await odpoved.json();
+        if (!odpoved.ok || !vysledek.success) throw new Error(vysledek.message || 'Odeslání selhalo');
+
+        formular.reset();
+        ukazStav('Děkuji, zpráva byla odeslána. Ozvu se vám co nejdříve.');
+    } catch (chyba) {
+        ukazStav(`Zprávu se nepodařilo odeslat. Napište mi prosím přímo na ${KONTAKTNI_EMAIL}.`, true);
+    } finally {
+        tlacitko.disabled = false;
+    }
+});

@@ -1,15 +1,17 @@
-# Web – Mgr. Marek Vávra, psychoterapie Zlín
+# Web – Mgr. Marek Vávra, psychoterapie
 
 Web běží na **https://www.zlin-psycholog.cz** přes GitHub Pages
 (repozitář `zlin-psycholog/muj_web`, větev `main`).
 
 ## Co kde je
 
-- `index.html` – obsah a struktura stránky (texty, sekce)
+- `index.html` – obsah a struktura stránky (texty, sekce, údaje pro vyhledávače)
 - `styles.css` – vzhled (barvy, fonty, rozložení)
-- `script.js` – interaktivita (mobilní menu, kontaktní formulář)
-- `foto-portret.jpg` – portrét v sekci „O mně“
-- `favicon.svg` – ikonka v záložce prohlížeče
+- `script.js` – interaktivita (mobilní menu, kontaktní formulář, rok v patičce)
+- `foto-portret.jpg` – portrét v sekci „O mně“ (slouží i jako náhled při sdílení odkazu)
+- `fonts/` – písmo Inter uložené přímo u webu (nenačítá se z Googlu)
+- `favicon.svg`, `apple-touch-icon.png` – ikonky (záložka prohlížeče, plocha iPhonu)
+- `robots.txt`, `sitemap.xml` – soubory pro vyhledávače
 - `CNAME` – vlastní doména pro GitHub Pages (neměnit)
 
 ## Jak zveřejnit změnu
@@ -25,20 +27,36 @@ Web běží na **https://www.zlin-psycholog.cz** přes GitHub Pages
 
 Náhled před zveřejněním: otevřít `index.html` dvojklikem v prohlížeči.
 
-## Kontaktní e-mail
+## Kontaktní formulář
 
-`zlinpsycholog@gmail.com` – je na dvou místech:
-- `index.html`, sekce „Kontakt“
-- `script.js`, řádek s `mailto:` (kam posílá formulář)
+Nastavuje se nahoře v `script.js`:
+
+- `KONTAKTNI_EMAIL` – e-mail pro záložní odeslání
+- `WEB3FORMS_KLIC` – přístupový klíč ze služby https://web3forms.com
+
+Dokud je klíč prázdný, formulář jen otevře e-mailovou aplikaci návštěvníka
+(nespolehlivé). Po vložení klíče chodí zprávy rovnou do e-mailu, na který
+byl klíč vystaven.
+
+E-mail je ještě na dvou místech v `index.html`: v sekci „Kontakt“
+a v údajích pro vyhledávače v hlavičce (`"email"`).
+
+## Nové fotky
+
+Fotky před vložením zmenšit na šířku cca 1100 px (jinak zpomalují web):
+
+```bash
+sips -Z 1100 -s format jpeg -s formatOptions 62 puvodni.jpg --out nova-fotka.jpg
+```
 
 ## Co ještě zbývá doplnit
 
-V `index.html` vyhledat text „Zde bude“:
-
-- Jak pracuji: popis přístupu k terapii
-
-Dále:
-- U FAQ nahradit `<div class="image-placeholder ...">` fotkou:
-  ```html
-  <img src="nazev-fotky.jpg" alt="Popis fotky" class="profile-image">
-  ```
+- **Jak pracuji** – v `index.html` vyhledat „Zde bude“ a nahradit textem.
+- **FAQ** – sekce je dočasně skrytá. Pro zobrazení v `index.html`:
+  1. u `<section id="faq" class="section" hidden>` smazat slovo `hidden`,
+  2. v menu nahoře odkomentovat řádek s odkazem „Časté otázky“,
+  3. nahradit `<div class="image-placeholder ...">` fotkou:
+     ```html
+     <img src="nazev-fotky.jpg" alt="Popis fotky" width="1100" height="825" loading="lazy">
+     ```
+- **Formulář** – vložit klíč Web3Forms (viz výše).
