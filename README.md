@@ -52,11 +52,7 @@ sips -Z 1100 -s format jpeg -s formatOptions 62 puvodni.jpg --out nova-fotka.jpg
 ## Co ještě zbývá doplnit
 
 - **Jak pracuji** – v `index.html` vyhledat „Zde bude“ a nahradit textem.
-- **FAQ** – sekce je dočasně skrytá. Pro zobrazení v `index.html`:
-  1. u `<section id="faq" class="section" hidden>` smazat slovo `hidden`,
-  2. v menu nahoře odkomentovat řádek s odkazem „Časté otázky“,
-  3. nahradit `<div class="image-placeholder ...">` fotkou:
-     ```html
-     <img src="nazev-fotky.jpg" alt="Popis fotky" width="1100" height="825" loading="lazy">
-     ```
-
+- **FAQ** – nahradit `<div class="image-placeholder ...">` fotkou:
+  ```html
+  <img src="nazev-fotky.jpg" alt="Popis fotky" width="1100" height="825" loading="lazy">
+  ```
