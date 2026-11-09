@@ -57,7 +57,7 @@ function handleSubmit(event) {
         `Jméno: ${name}\nE-mail: ${email}\n\nZpráva:\n${message}`
     );
 
-    window.location.href = `mailto:terapie@example.cz?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:zlinpsycholog@gmail.com?subject=${subject}&body=${body}`;
 
     return false;
 }
