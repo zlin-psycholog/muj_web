@@ -8,7 +8,7 @@ Web běží na **https://www.zlin-psycholog.cz** přes GitHub Pages
 - `index.html` – obsah a struktura stránky (texty, sekce, údaje pro vyhledávače)
 - `styles.css` – vzhled (barvy, fonty, rozložení)
 - `script.js` – interaktivita (mobilní menu, kontaktní formulář, rok v patičce)
-- `foto-mraky.jpg` – fotka vedle FAQ
+- `foto-mraky.jpg` – fotka vedle FAQ; `foto-mraky-hero.jpg` a `foto-mraky-hero-mobil.jpg` – pozadí za jménem nahoře
 - `foto-portret.jpg` – portrét v sekci „O mně“ (slouží i jako náhled při sdílení odkazu)
 - `fonts/` – písmo Inter uložené přímo u webu (nenačítá se z Googlu)
 - `favicon.svg`, `apple-touch-icon.png` – ikonky (záložka prohlížeče, plocha iPhonu)
@@ -58,4 +58,4 @@ sips -Z 1100 -s format jpeg -s formatOptions 62 puvodni.jpg --out nova-fotka.jpg
 
 ## Zdroje fotek
 
-- `foto-mraky.jpg` – Unsplash (licence Unsplash, volné použití), https://unsplash.com/photos/Nk5KAUgTpj4
+- `foto-mraky*.jpg` – Unsplash (licence Unsplash, volné použití), https://unsplash.com/photos/Nk5KAUgTpj4

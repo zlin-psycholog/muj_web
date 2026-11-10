@@ -287,34 +287,33 @@ summary:focus-visible {
     min-height: 60vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    /* fotka mraků + tmavší závoj zleva, aby bylo jméno dobře čitelné */
+    background-color: #3A3540;
+    background-image:
+        linear-gradient(90deg, rgba(20, 18, 28, 0.6) 0%, rgba(20, 18, 28, 0.3) 55%, rgba(20, 18, 28, 0.1) 100%),
+        url('foto-mraky-hero.jpg');
+    background-size: cover;
+    background-position: right top;
     padding: calc(5rem + env(safe-area-inset-top, 0px)) 0 2.5rem;
     position: relative;
     overflow: hidden;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(var(--rgb-accent), 0.08) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-}
 
 .hero h1 {
     max-width: 700px;
     margin-bottom: 2rem;
+    color: var(--color-white);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
     max-width: 550px;
     margin-bottom: 2.5rem;
-    color: var(--color-text-light);
+    color: var(--color-white);
+    font-weight: 400;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
     line-height: 1.6;
 }
 
@@ -782,6 +781,9 @@ summary:focus-visible {
     }
 
     .hero {
+        background-image:
+            linear-gradient(90deg, rgba(20, 18, 28, 0.6) 0%, rgba(20, 18, 28, 0.3) 100%),
+            url('foto-mraky-hero-mobil.jpg');
         min-height: 50vh;
         padding: calc(5rem + env(safe-area-inset-top, 0px)) 0 1.5rem;
     }
